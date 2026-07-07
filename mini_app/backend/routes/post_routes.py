@@ -55,7 +55,12 @@ def create_post(
 
     db.refresh(new_post)
 
-    return new_post
+    return {
+    "id": new_post.id,
+    "content": new_post.content,
+    "user_id": new_post.user_id,
+    "username": current_user.username
+}
 
 
 @router.get(
